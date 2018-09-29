@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Histogram
+comment0.text=\r\n\ This\ class\ displays\ a\ graphic\ representation\ of\ data\ to\ the\ screen\ assuming\r\n\ the\ screen\ is\ 80\ characters\ wide.\r\n\r\n\ @author\ Nick\ Coyle\r\n\ @version\ 10.1.2018\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=title
+comment2.target=void\ printHeader(java.lang.String)
+comment3.params=barTitle\ barValue\ dataChar\ scale
+comment3.target=void\ createBar(int,\ int,\ char,\ int)
+comment4.params=barValue\ dataChar\ scale
+comment4.target=void\ createBar(int,\ char,\ int)
+comment5.params=step
+comment5.target=void\ createAxis(int)
+comment6.params=
+comment6.target=void\ emptyRow()
+numComments=7
