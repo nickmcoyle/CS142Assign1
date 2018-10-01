@@ -1,7 +1,7 @@
     
 /**
  * This class displays a graphic representation of data to the screen assuming
- * the screen is 80 characters wide.
+ * the screen is 65 characters wide.
  *
  * @author Nick Coyle
  * @version 10.1.2018
@@ -9,49 +9,49 @@
 
 public class Histogram{ 
     public static final String TITLE = "Presidential Elections";
-    public static final int SCREENWIDTH = 80;
-    public static final String LEFTMARGIN = "       ";
-    public static final char TOTALELIGIBLE = 'T';
-    public static final char REGISTEREDVOTERS = 'R';
-    public static final char VOTESCAST = 'V';
+    public static final int SCREEN_WIDTH = 65;
+    public static final String LEFT_MARGIN = "       ";
+    public static final char TOTAL_ELIGIBLE = 'T';
+    public static final char REGISTERED_VOTERS = 'R';
+    public static final char VOTES_CAST = 'V';
     public static final int SCALE = 100000;
     public static final int STEP = 1000000;
        
     public static void main(String[] args) {       
         printHeader(TITLE);
         
-        createBar(2000, 4368000, TOTALELIGIBLE, SCALE);
-        createBar(3335714, REGISTEREDVOTERS, SCALE);
+        createBar(2000, 4368000, TOTAL_ELIGIBLE, SCALE);
+        createBar(3335714, REGISTERED_VOTERS, SCALE);
         createPercentage(4368000, 3335714);
-        createBar(2517028, VOTESCAST, SCALE);
+        createBar(2517028, VOTES_CAST, SCALE);
         createPercentage(4368000, 2517028);
         emptyRow();
         
-        createBar(2004, 4646000, TOTALELIGIBLE, SCALE);        
-        createBar(3508208, REGISTEREDVOTERS, SCALE);
+        createBar(2004, 4646000, TOTAL_ELIGIBLE, SCALE);        
+        createBar(3508208, REGISTERED_VOTERS, SCALE);
         createPercentage(4646000, 3508208);
-        createBar(2884783, VOTESCAST, SCALE);
+        createBar(2884783, VOTES_CAST, SCALE);
         createPercentage(4646000, 2884783);
         emptyRow();
         
-        createBar(2008, 5010844, TOTALELIGIBLE, SCALE);
-        createBar(3630118, REGISTEREDVOTERS, SCALE);
+        createBar(2008, 5010844, TOTAL_ELIGIBLE, SCALE);
+        createBar(3630118, REGISTERED_VOTERS, SCALE);
         createPercentage(5010844, 3630118);
-        createBar(3071587, VOTESCAST, SCALE);
+        createBar(3071587, VOTES_CAST, SCALE);
         createPercentage(5010844, 3071587);
         emptyRow();
         
-        createBar(2012, 5221125, TOTALELIGIBLE, SCALE);        
-        createBar(3904959, REGISTEREDVOTERS, SCALE);
+        createBar(2012, 5221125, TOTAL_ELIGIBLE, SCALE);        
+        createBar(3904959, REGISTERED_VOTERS, SCALE);
         createPercentage(5221125, 3904959);
-        createBar(3172930, VOTESCAST, SCALE);
+        createBar(3172930, VOTES_CAST, SCALE);
         createPercentage(5221125, 3172930);
         emptyRow();
         
-        createBar(2016, 5557921, TOTALELIGIBLE, SCALE);
-        createBar(4270270, REGISTEREDVOTERS, SCALE);
+        createBar(2016, 5557921, TOTAL_ELIGIBLE, SCALE);
+        createBar(4270270, REGISTERED_VOTERS, SCALE);
         createPercentage(5557921, 4270270);
-        createBar(3363440, VOTESCAST, SCALE); 
+        createBar(3363440, VOTES_CAST, SCALE); 
         createPercentage(5557921, 3363440);
         
         createAxis(STEP);    
@@ -64,7 +64,7 @@ public class Histogram{
      *  @param title the name of our chart
      */
     public static void printHeader(String title) {
-        int spacesToCenter = (SCREENWIDTH - title.length())/2;
+        int spacesToCenter = (SCREEN_WIDTH - title.length())/2;
         
         for(int i = 0; i < spacesToCenter; ++i) {
             System.out.print(" ");
@@ -105,7 +105,7 @@ public class Histogram{
      *  @param scale the units of the y axis
      */
     public static void createBar(int barValue, char dataChar, int scale) {
-        System.out.print(LEFTMARGIN + "|");
+        System.out.print(LEFT_MARGIN + "|");
         
         int numBars = barValue/scale;
         for(int i = 0; i<numBars; ++i) {
@@ -135,9 +135,9 @@ public class Histogram{
      *  @param step the amount each value increases for every 10 points on the x-axis
      */
     public static void createAxis(int step) {
-        System.out.print(LEFTMARGIN + "|");
+        System.out.print(LEFT_MARGIN + "|");
         
-        for(int i = 2; i < SCREENWIDTH/10; ++i) {
+        for(int i = 0; i < SCREEN_WIDTH/10; ++i) {
             for(int j = 1; j < 10; ++j) {
                 System.out.print("-");
             }           
@@ -145,9 +145,9 @@ public class Histogram{
         }
 
         System.out.println();
-        System.out.print(LEFTMARGIN + 0 + "      ");
+        System.out.print(LEFT_MARGIN + 0 + "      ");
         
-        for(int i = 1; i <= SCREENWIDTH/10-2; ++i) {            
+        for(int i = 1; i <= SCREEN_WIDTH/10; ++i) {            
             System.out.print(i*step);            
             System.out.print("   ");
         }
@@ -159,6 +159,6 @@ public class Histogram{
      *  Prints an empty row to the chart for style
      */
     public static void emptyRow() {
-        System.out.println(LEFTMARGIN + "|");
+        System.out.println(LEFT_MARGIN + "|");
     }
 }
