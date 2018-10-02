@@ -10,7 +10,7 @@
 public class Histogram{ 
     public static final String TITLE = "Presidential Elections";
     public static final int SCREEN_WIDTH = 65;
-    public static final String LEFT_MARGIN = "       ";
+    public static final String LEFT_MARGIN = "     ";
     public static final char TOTAL_ELIGIBLE = 'T';
     public static final char REGISTERED_VOTERS = 'R';
     public static final char VOTES_CAST = 'V';
@@ -85,7 +85,7 @@ public class Histogram{
      *  @param scale the units of the y axis
      */
     public static void createBar(int barTitle, int barValue, char dataChar, int scale) {
-        System.out.print("  " + barTitle + " |");
+        System.out.print(barTitle + " |");
         
         int numBars = barValue/scale;
         for(int i = 0; i<numBars; ++i) {
@@ -130,24 +130,23 @@ public class Histogram{
     
     /**
      *  Computes number of chunks to display in the x-axis by dividing the screen width by 10
-     *  since we assume always display x-axis by 10s
+     *  since we assume always display x-axis by base 10
      *  
      *  @param step the amount each value increases for every 10 points on the x-axis
      */
     public static void createAxis(int step) {
         System.out.print(LEFT_MARGIN + "|");
         
-        for(int i = 0; i < SCREEN_WIDTH/10; ++i) {
-            for(int j = 1; j < 10; ++j) {
-                System.out.print("-");
-            }           
-        System.out.print("+");
+        int axisSegments = SCREEN_WIDTH/10;
+        
+        for(int i = 0; i<axisSegments; ++i) {       
+            System.out.print("---------+");      
         }
 
         System.out.println();
         System.out.print(LEFT_MARGIN + 0 + "      ");
         
-        for(int i = 1; i <= SCREEN_WIDTH/10; ++i) {            
+        for(int i = 1; i<=axisSegments; ++i) {            
             System.out.print(i*step);            
             System.out.print("   ");
         }
