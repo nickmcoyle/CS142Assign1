@@ -70,8 +70,7 @@ public class Histogram{
             System.out.print(" ");
         }    
         
-        System.out.println(title);
-        System.out.println();
+        System.out.println(title);        
     }
     
     /**
@@ -85,14 +84,13 @@ public class Histogram{
      *  @param scale the units of the y axis
      */
     public static void createBar(int barTitle, int barValue, char dataChar, int scale) {
+        System.out.println();
         System.out.print(barTitle + " |");
         
         int numBars = barValue/scale;
         for(int i = 0; i<numBars; ++i) {
             System.out.print(dataChar);
-        }   
-        
-        System.out.println();
+        }          
     }
     
     /**
@@ -105,6 +103,7 @@ public class Histogram{
      *  @param scale the units of the y axis
      */
     public static void createBar(int barValue, char dataChar, int scale) {
+        System.out.println();
         System.out.print(LEFT_MARGIN + "|");
         
         int numBars = barValue/scale;
@@ -124,8 +123,6 @@ public class Histogram{
                
         System.out.printf("     %.2f", percentage);
         System.out.print("%");
-        
-        System.out.println();
     }
     
     /**
@@ -135,6 +132,7 @@ public class Histogram{
      *  @param step the amount each value increases for every 10 points on the x-axis
      */
     public static void createAxis(int step) {
+        System.out.println();
         System.out.print(LEFT_MARGIN + "|");
         
         int axisSegments = SCREEN_WIDTH/10;
@@ -149,15 +147,14 @@ public class Histogram{
         for(int i = 1; i<=axisSegments; ++i) {            
             System.out.print(i*step);            
             System.out.print("   ");
-        }
-        
-        System.out.println();
+        }        
     }
     
     /**
      *  Prints an empty row to the chart for style
      */
     public static void emptyRow() {
-        System.out.println(LEFT_MARGIN + "|");
+        System.out.println();
+        System.out.print(LEFT_MARGIN + "|");
     }
 }
