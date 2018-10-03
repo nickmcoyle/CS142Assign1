@@ -1,0 +1,16 @@
+Peer review for Assoulim
+I like your project because it works and prints what it is supposed to print. I also like that you did the extra credit successfully. I think you are off to a great start here and just have a few minor things you could change that we talked about in class. Mostly, I noticed you don't use the constants again after you declare them. It's small things for the most part, but you're code works and is nicely organized.
+
+Line 8. For this assignment, we are supposed to name our class Histogram, not main.
+Line 22, 23, 25 You call the function createBar and pass a char literal 'T' but you defined a constant on line 13 to hold this value, so why don't you pass the constant?
+Line 35 you have a call to emptyRow() just on its own line, not consistent with other function calls
+Line 60 you call createAxis(1000000) but pass a literal value, why don't you use the constant you defined on line 16?
+Line 73, you calculate length of the string "Presidential Elections" but why? You passed that in as a parameter, so use it instead header.length();
+Line 73, you calculate 40 - headerLen/2-1 but this is costly because it runs each time the for loop runs. So it would be more efficient to declare that outside the loop like this :
+int headerLen = "Presidential Elections".length();
+int spaces = 40 - headerLen/ 2 - 1;
+for (int i = 1; i <= spaces; i++) {
+Line 95 you can declare your calculations before the for loop again.
+Line 113 you can declare your calculations before the for loop again.
+Line 128 you have hardcoded 6 as the number of times the for loop will run, can you make it perform a calculation using the width of the screen to determine how many times it will print the axis?
+-Nick
